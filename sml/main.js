@@ -29,7 +29,7 @@ class SWE{
 			i=(i+1)|0;
 		}
 	}
-	ScanBlock(){
+	scanBlock(){
 		var minx=(this.sx>this.ex)?this.ex:this.sx;
 		var miny=(this.sy>this.ey)?this.ey:this.sy;
 		var minz=(this.sz>this.ez)?this.ez:this.sz;
@@ -46,12 +46,13 @@ class SWE{
 		while(i < maxx-minx){
 			while(j < maxy-miny){
 				while(k < maxz-minz){
-					results[''+Level.getTile(minx+i,miny+j,minz+k)+Level.getData(minx+i,miny+j,minz+k)]=(results[''+Level.getTile(minx+i,miny+j,minz+k)+Level.getData(minx+i,miny+j,minz+k)]+1)|0;
+					results[Level.getTile(minx+i,miny+j,minz+k)+':'+Level.getData(minx+i,miny+j,minz+k)]=(results[Level.getTile(minx+i,miny+j,minz+k)+':'+Level.getData(minx+i,miny+j,minz+k)]+1)|0;
 					k=(k+1)|0;
 				}
 				j=(j+1)|0;
 			}
 			i=(i+1)|0;
 		}
+		return results;
 	}
 }
